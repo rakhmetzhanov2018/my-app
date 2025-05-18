@@ -1,38 +1,94 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  height: fit-content;
+  border: solid;
+  height: 200vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#header {
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 10vh;
+  border: solid 0.5px gray;
+  position: sticky;
+  top: 0px;
+  z-index: 2;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#header-button-container {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 2vw;
+  justify-content: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header-button {
+  width: fit-content;
+  height: fit-content;
+  border: none;
+  background-color: white;
+  font-size: large;
+  font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+.header-button:hover {
+  border-bottom: 1px solid;
+}
+
+#header-main-button {
+  width: fit-content;
+  height: fit-content;
+  border: none;
+  background-color: white;
+  margin-top: 3vh;
+  margin-left: 3vw;
+  font-size: 30px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 600;
+}
+#header-other {
+  width: 40%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+nav {
+  width: 20vw;
+  height: 50vh;
+  border: solid 0.5px gray;
+  position: relative;
+  top: -1px;
+}
+
+.nav-button {
+  z-index: 1;
+  width: fit-content;
+  height: fit-content;
+  border: none;
+  background-color: white;
+  font-size: large;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.nav-button:hover {
+  border-bottom: 1px solid;
+}
+
+
+#nav-button-container {
+  margin: 5vh 0 0 7vw;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  justify-content: space-around;
+  gap: 16px;
 }
