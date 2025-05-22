@@ -1,12 +1,13 @@
 .App {
-  text-align: center;
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
   height: fit-content;
   border: solid;
-  height: 200vh;
+  height: fit-content;
 }
+
+/* header */
 
 #header {
   background-color: white;
@@ -62,6 +63,8 @@
   gap: 16px;
 }
 
+/* navigation */
+
 nav {
   width: 20vw;
   height: 50vh;
@@ -91,4 +94,78 @@ nav {
   flex-direction: column;
   justify-content: space-around;
   gap: 16px;
+}
+
+/* main content */
+
+#main-content {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-part {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  text-align: start;
+  margin: 5.5%;
+}
+
+#category-list {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;  
+}
+
+#product-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+.category-button {
+  width: 200px;
+  height: 175px;
+  background-color: white;
+}
+
+.product-button {
+  width: 20vw;
+  height: 20vw;
+  background-color: #FFF3F3;
+}
+
+.content-part-text {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.orange-rectangle {
+  width: 30px;
+  height: 60px;
+  border-radius: 4px;
+  background-color: #DB4444;
+}
+
+.category-first-name {
+  color: #DB4444;
+}
+
+.line {
+  width: 89%;
+  height: 0.5px;
+  background-color: grey;
+  margin-left: 5.5%;
+}
+
+/* contact */
+
+#contact {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
 }
