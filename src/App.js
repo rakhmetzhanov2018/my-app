@@ -4,6 +4,8 @@ import { Navigation } from './components/navigation';
 import { MainContent } from './components/content';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import { Contact } from './components/contact';
+import { Footer } from './components/footer';
+import { About } from './components/about';
 
 function App() {
   return (
@@ -14,7 +16,9 @@ function App() {
       <Routes>
         <Route path='/home' Component={Home}></Route>
         <Route path='/contact' Component={Contact}></Route>
+        <Route path='/about' Component={About}></Route>
       </Routes>
+      <Footer/>
     </Router>
   );
 }
