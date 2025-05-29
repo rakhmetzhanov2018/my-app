@@ -1,5 +1,5 @@
 import { Input } from "antd"
-import search from "../Images/Search.jpg"
+import search from "../Images/Search.png"
 import cart from "../Images/Cart.jpg"
 import wishlist from "../Images/Wishlist.jpg"
 import { useNavigate } from 'react-router-dom';
@@ -29,7 +29,7 @@ export function Header() {
         <div id="header-other">
             <Input size='large' placeholder="What are you looking for?" 
             style={{width: '40%', marginRight: '8px', border: 'none', backgroundColor: "#FFF3F3"}} 
-            suffix={<button style={{border: 'none'}}><img style={{borderRadius: '50%'}} src={search}/></button>}></Input>
+            suffix={<button style={{border: 'none'}}><img src={search}/></button>}></Input>
             <img src={wishlist}></img>
             <img src={cart}></img>
         </div>
