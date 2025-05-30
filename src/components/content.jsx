@@ -5,6 +5,22 @@ import CategoryCamera  from "../Images/Category-Camera.png"
 import CategoryHeadphone  from "../Images/Category-Headphone.png"
 import CategoryGamepad  from "../Images/Category-Gamepad.png"
 
+import DogFood from "../ProductImages/DogFood.png"
+import Camera from "../ProductImages/Camera.png"
+import Laptop from "../ProductImages/Laptop.png"
+import CurologySet from "../ProductImages/CurologySet.png"
+import Car from "../ProductImages/Car.png"
+import SoccerCleats from "../ProductImages/SoccerCleats.png"
+import Gamepad from "../ProductImages/Gamepad.png"
+import Jacket from "../ProductImages/Jacket.png"
+import Coat from "../ProductImages/Coat.png"
+import Bag from "../ProductImages/Bag.png"
+
+import YellowStar from "../Images/YellowStar.png"
+import GrayStar from "../Images/GrayStar.png"
+import { productMas } from "./products"
+import { useNavigate } from "react-router-dom"
+
 
 export function MainContent() {
     return <div id="main-content">
@@ -48,17 +64,46 @@ export function MainContent() {
                 <h3 className="category-first-name">Our products</h3>
             </div>
             <h1 style={{fontSize: "36px"}}>Explore our products</h1>
-            <div id="product-list">
-                <button className="product-button">
-                </button>
-                <button className="product-button"></button>
-                <button className="product-button"></button>
-                <button className="product-button"></button>
-                <button className="product-button"></button>
-                <button className="product-button"></button>
-                <button className="product-button"></button>
-                <button className="product-button"></button>
+            {DeployProducts()}
+        </div>
+    </div>
+}
+
+function DeployProducts() {
+    const productImages = [DogFood, Camera, Laptop, CurologySet, Car, SoccerCleats, Gamepad, Jacket, Coat, Bag]
+    return (
+        <div id="product-list">{productMas.map(item => 
+            (<Product name={item.name} cost={item.cost} rating={item.rating} image={productImages[productMas.indexOf(item)]}/>))}
+        </div>
+    );
+}
+
+function Product(props) {
+    const navigate = useNavigate();
+    const handleClickProduct = (id) => {
+        navigate(`/product/:id=${id}`);
+    };
+    return <div className="product">
+        <button className="product-button" onClick={handleClickProduct(1)}>
+            <img src={props.image}></img>
+        </button>
+        <div>{props.name}
+            <div style={{display: 'flex', gap: '10px'}}>
+                <div style={{color: 'red', marginTop: '-1px'}}>${props.cost}</div>
+                {Scoring(props.rating)}
             </div>
         </div>
     </div>
+}
+
+function Scoring(score) {
+    let arr = [];
+    for (let i = 0; i < 5; i++) {
+        arr.push(i >= score ? 0 : 1);
+    }
+    return (
+    <div style={{display: 'flex', gap: '10px', alignItems:'center'}}>
+        { arr.map(item => (<img style={{scale: '120%'}} src={item === 1 ? YellowStar : GrayStar}></img>))}
+    </div>
+    );
 }

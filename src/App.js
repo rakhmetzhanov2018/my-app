@@ -7,6 +7,7 @@ import { Contact } from './components/contact';
 import { Footer } from './components/footer';
 import { About } from './components/about';
 import { SignUp } from './components/sign-up';
+import { ProductInfo } from './components/productInfo';
 import HomeImage from './Images/Content-Image.png'
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <Route path='/contact' Component={Contact}></Route>
         <Route path='/about' Component={About}></Route>
         <Route path='/sign-up' Component={SignUp}></Route>
+        <Route path='/product/:id=1' Component={ProductInfo}></Route>
       </Routes>
       </div>
       <Footer/>

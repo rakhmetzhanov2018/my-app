@@ -145,13 +145,22 @@ nav {
   background-color: rgb(0, 148, 148);
 }
 
-.product-button {
-  width: 20%;
+.product {
+  width: 300px;
   height: 360px;
-  background-color: #FFF3F3;
-  border: none;
-  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-family: Poppins;
+  font-size: 20px;
 }
+
+.product-button {
+  height: 80%;
+  border-radius: 10px;
+  border: none;
+}
+
 
 .content-part-text {
   display: flex;
