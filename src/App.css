@@ -7,6 +7,61 @@
   font-style: normal;
 }
 
+.carousel {
+  background-color: rgb(0, 0, 0);
+  height: 350px;
+}
+.carousel-div {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 50px;
+}
+
+.carousel-div-text {
+  margin-left: 50px;
+  width: 500px;
+  color: white;
+  font-family: Poppins;
+  font-size: 30px;
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  height: 300px;
+}
+
+.carousel-div-img {
+  width: 320px;
+  height: 300px;
+  margin: 20px;
+}
+.carousel-div-name {
+  margin-top: 50px;
+  height: 200px;
+  font-size: 50px;
+  font-weight: 700;
+}
+.carousel-div-price {
+  margin-top: 10px;
+  font-size: 40px;
+  font-weight: 600;
+  color: aquamarine;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+.carousel-div-button {
+  background-color: black;
+  border: none;
+  color: white;
+  font-family: Poppins;
+  font-size: 30px;
+  border-bottom: white 2px solid;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .poppins-thin {
   font-family: "Poppins", sans-serif;
   font-weight: 100;
@@ -161,6 +216,89 @@ nav {
   border: none;
 }
 
+#product-modal {
+  height: 600px;
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+}
+#product-modal-img-container {
+  height: 600px;
+  width: 500px;
+  background-color: #ffecec;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+#product-modal-img {
+  height: 400px;
+  width: 420px;
+}
+#product-modal-text {
+  font-family: Poppins;
+  display: flex;
+  flex-direction: column;
+  width: 390px;
+  gap: 10px;
+}
+#product-modal-text-name {
+  font-size: 40px;
+  font-weight: 700;
+  height: 20%;
+  display: flex;
+  align-items: center;
+}
+#product-modal-text-price {
+  font-size: 30px;
+  font-weight: 400;
+}
+#product-modal-text-desc {
+  font-size: 16px;
+  height: 20%;  
+}
+#product-modal-text-buttons {
+  display: flex;
+  flex-direction: row;
+  height: 40px;
+  align-items: center;
+  gap: 20px;
+}
+#product-modal-text-buttons-main {
+  display: flex;
+  align-items: center;
+}
+.product-modal-text-buttons-plus-minus {
+  width: 50px;
+  height: 46px;
+  background-color: white;
+  border: gray solid 0.5px;
+}
+.product-modal-text-buttons-plus-minus:hover {
+  background-color: rgb(36, 187, 187);
+  filter: invert();
+}
+#product-modal-text-buttons-div {
+  height: 44px;
+  width: 100px;
+  font-family: Poppins;
+  font-size: 24px;
+  margin: -1px; 
+  border: solid 0.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#product-modal-text-buttons-buy {
+  height: 46px;
+  border: none;
+  background-color: #DB4444;
+  width: 200px;
+  color: white;
+  border-radius: 5px;
+  font-family: Poppins;
+  font-size: 16px;
+}
 
 .content-part-text {
   display: flex;

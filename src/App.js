@@ -7,8 +7,11 @@ import { Contact } from './components/contact';
 import { Footer } from './components/footer';
 import { About } from './components/about';
 import { SignUp } from './components/sign-up';
-import { ProductInfo } from './components/productInfo';
 import HomeImage from './Images/Content-Image.png'
+import { Bag, Camera, Jacket } from './ProductImages';
+import { Carousel } from 'antd';
+import { productMas } from './components/products';
+import { ArrowRight } from './Images';
 
 function App() {
   return (
@@ -25,7 +28,6 @@ function App() {
         <Route path='/contact' Component={Contact}></Route>
         <Route path='/about' Component={About}></Route>
         <Route path='/sign-up' Component={SignUp}></Route>
-        <Route path='/product/:id=1' Component={ProductInfo}></Route>
       </Routes>
       </div>
       <Footer/>
@@ -36,7 +38,58 @@ function App() {
 function Home() {
   return <div className='App'>
     <Navigation/>
-    <img src={HomeImage} style={{margin: '50px 0 0 15%', width: 'fit-content', height: 'fit-content'}}></img>
+    <div style={{width: '900px', height: '400px', margin: '50px 0 0 15%'}}>
+    <Carousel autoplay>
+      <div className="carousel">
+        <div className="carousel-div">
+          <div className='carousel-div-text'>
+            <div className="carousel-div-name">CANON EOS DSLR Camera</div>
+            <div className='carousel-div-price'>
+              <div>$360</div>
+              <button className='carousel-div-button'>
+                Shop Now
+                <img style={{height: '30px', width: '30px'}} 
+                src={ArrowRight}></img>
+              </button>
+            </div>
+          </div>
+          <img className='carousel-div-img' src={Camera}></img>
+        </div>
+      </div>
+      <div className="carousel">
+        <div className="carousel-div">
+          <div className='carousel-div-text'>
+            <div className="carousel-div-name">Gucci duffle bag</div>
+            <div className='carousel-div-price'>
+              <div>$960</div>
+              <button className='carousel-div-button'>
+                Shop Now
+                <img style={{height: '30px', width: '30px'}} 
+                src={ArrowRight}></img>
+              </button>
+            </div>
+          </div>
+          <img className='carousel-div-img' src={Bag}></img>
+        </div>
+      </div>
+      <div className="carousel">
+        <div className="carousel-div">
+          <div className='carousel-div-text'>
+            <div className="carousel-div-name">Quilted Satin Jacket</div>
+            <div className='carousel-div-price'>
+              <div>$660</div>
+              <button className='carousel-div-button'>
+                Shop Now
+                <img style={{height: '30px', width: '30px'}} 
+                src={ArrowRight}></img>
+              </button>
+            </div>
+          </div>
+          <img className='carousel-div-img' src={Jacket}></img>
+        </div>
+      </div>
+    </Carousel>
+    </div>
     <MainContent/>
   </div>
 }

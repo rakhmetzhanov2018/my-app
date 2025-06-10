@@ -1,26 +1,9 @@
-import CategoryCellphone  from "../Images/Category-CellPhone.png"
-import CategoryComputer  from "../Images/Category-Computer.png"
-import CategorySmartWatch  from "../Images/Category-SmartWatch.png"
-import CategoryCamera  from "../Images/Category-Camera.png"
-import CategoryHeadphone  from "../Images/Category-Headphone.png"
-import CategoryGamepad  from "../Images/Category-Gamepad.png"
-
-import DogFood from "../ProductImages/DogFood.png"
-import Camera from "../ProductImages/Camera.png"
-import Laptop from "../ProductImages/Laptop.png"
-import CurologySet from "../ProductImages/CurologySet.png"
-import Car from "../ProductImages/Car.png"
-import SoccerCleats from "../ProductImages/SoccerCleats.png"
-import Gamepad from "../ProductImages/Gamepad.png"
-import Jacket from "../ProductImages/Jacket.png"
-import Coat from "../ProductImages/Coat.png"
-import Bag from "../ProductImages/Bag.png"
-
-import YellowStar from "../Images/YellowStar.png"
-import GrayStar from "../Images/GrayStar.png"
 import { productMas } from "./products"
 import { useNavigate } from "react-router-dom"
-
+import { Bag, Camera, Car, Coat, CurologySet, DogFood, Gamepad, Jacket, Laptop, SoccerCleats } from "../ProductImages"
+import { CategoryCamera, CategoryCellphone, CategoryComputer, CategoryGamepad, CategoryHeadphone, CategorySmartWatch, GrayStar, Minus, Plus, ProductBottom, YellowStar } from "../Images"
+import { useState } from "react";
+import { Modal } from "antd";
 
 export function MainContent() {
     return <div id="main-content">
@@ -73,18 +56,28 @@ function DeployProducts() {
     const productImages = [DogFood, Camera, Laptop, CurologySet, Car, SoccerCleats, Gamepad, Jacket, Coat, Bag]
     return (
         <div id="product-list">{productMas.map(item => 
-            (<Product name={item.name} cost={item.cost} rating={item.rating} image={productImages[productMas.indexOf(item)]}/>))}
+            (<Product name={item.name} fullname={item.fullname} cost={item.cost} rating={item.rating} text={item.text} image={productImages[productMas.indexOf(item)] }/>))}
         </div>
     );
 }
 
 function Product(props) {
-    const navigate = useNavigate();
-    const handleClickProduct = (id) => {
-        navigate(`/product/:id=${id}`);
-    };
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [modalData, setModalData] = useState({});
+    const showModal = () => {
+        setModalData({
+            image: props.image,
+            name: props.fullname,
+            cost: props.cost,
+            rating: props.rating,
+            text: props.text
+        })
+        setIsModalOpen(true);
+    } 
+    const handleCancel = () => setIsModalOpen(false);
+
     return <div className="product">
-        <button className="product-button" onClick={handleClickProduct(1)}>
+        <button className="product-button" onClick={showModal}>
             <img src={props.image}></img>
         </button>
         <div>{props.name}
@@ -93,7 +86,24 @@ function Product(props) {
                 {Scoring(props.rating)}
             </div>
         </div>
+        <Modal width='1000px' open={isModalOpen} onCancel={handleCancel} footer={null}>
+            <div id="product-modal">
+                <div id='product-modal-img-container'><img id='product-modal-img' src={modalData.image}></img></div>
+                <div id='product-modal-text'>
+                    <div id='product-modal-text-name'>{modalData.name}</div>
+                    <div>{Scoring(modalData.rating)}</div>
+                    <div id='product-modal-text-price'>${modalData.cost}</div>
+                    <div id='product-modal-text-desc'>{modalData.text}</div>
+                    <div id="product-modal-text-buttons">
+                        {Counter()}
+                        <button id="product-modal-text-buttons-buy">Buy Now</button>
+                    </div>
+                    <img style={{marginTop: '28px'}} src={ProductBottom}></img>
+                </div>
+            </div>
+        </Modal>
     </div>
+
 }
 
 function Scoring(score) {
@@ -106,4 +116,14 @@ function Scoring(score) {
         { arr.map(item => (<img style={{scale: '120%'}} src={item === 1 ? YellowStar : GrayStar}></img>))}
     </div>
     );
+}
+
+function Counter() {
+    const [count, setCount] = useState(1);
+
+    return <div id="product-modal-text-buttons-main">
+        <button className="product-modal-text-buttons-plus-minus" onClick={() => count > 0 ? setCount(count - 1) : {}}><img src={Minus}></img></button>
+        <div id="product-modal-text-buttons-div">{count}</div>
+        <button className="product-modal-text-buttons-plus-minus" onClick={() => setCount(count + 1)}><img src={Plus}></img></button>
+    </div>
 }
