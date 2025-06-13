@@ -1,20 +1,11 @@
-import DogFood from "../ProductImages/DogFood.png"
-import Camera from "../ProductImages/Camera.svg"
-import Laptop from "../ProductImages/Laptop.png"
-import CurologySet from "../ProductImages/CurologySet.png"
-import Car from "../ProductImages/Car.png"
-import SoccerCleats from "../ProductImages/SoccerCleats.png"
-import Gamepad from "../ProductImages/Gamepad.png"
-import Jacket from "../ProductImages/Jacket.png"
-import Coat from "../ProductImages/Coat.png"
-import Bag from "../ProductImages/Bag.png"
+import { Bag, Camera, Car, Coat, CurologySet, DogFood, Gamepad, Jacket, Laptop, SoccerCleats } from "../ProductImages"
 
 const dogFood = {
     name: 'Dog Food',
     fullname: 'Breed Dry Dog Food',
     cost: 120,
     rating: 3,
-    image: {DogFood},
+    image: { DogFood },
     text: "Breed Dry Dog Food – Premium dry dog food tailored to specific breeds, with balanced nutrition for optimal health. Supports digestion, coat shine, and energy"
 }
 

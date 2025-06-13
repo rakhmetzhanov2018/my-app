@@ -2,7 +2,7 @@ import './App.css';
 import { Header } from './components/header';
 import { Navigation } from './components/navigation';
 import { MainContent } from './components/content';
-import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Routes, useNavigate } from 'react-router-dom';
 import { Contact } from './components/contact';
 import { Footer } from './components/footer';
 import { About } from './components/about';
@@ -18,7 +18,7 @@ function App() {
     <Router>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com"></link>
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin></link>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin='true'></link>
         <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"></link>
       </head>
       <div className="App">
@@ -36,6 +36,8 @@ function App() {
 }
 
 function Home() {
+  const navigate = useNavigate();
+
   return <div className='App'>
     <Navigation/>
     <div style={{width: '900px', height: '400px', margin: '50px 0 0 15%'}}>
@@ -46,7 +48,7 @@ function Home() {
             <div className="carousel-div-name">CANON EOS DSLR Camera</div>
             <div className='carousel-div-price'>
               <div>$360</div>
-              <button className='carousel-div-button'>
+              <button onClick={() => navigate('/home#products')} className='carousel-div-button'>
                 Shop Now
                 <img style={{height: '30px', width: '30px'}} 
                 src={ArrowRight}></img>
@@ -62,7 +64,7 @@ function Home() {
             <div className="carousel-div-name">Gucci duffle bag</div>
             <div className='carousel-div-price'>
               <div>$960</div>
-              <button className='carousel-div-button'>
+              <button onClick={() => navigate('/home#products')} className='carousel-div-button'>
                 Shop Now
                 <img style={{height: '30px', width: '30px'}} 
                 src={ArrowRight}></img>
@@ -78,7 +80,7 @@ function Home() {
             <div className="carousel-div-name">Quilted Satin Jacket</div>
             <div className='carousel-div-price'>
               <div>$660</div>
-              <button className='carousel-div-button'>
+              <button onClick={() => navigate('/home#products')} className='carousel-div-button'>
                 Shop Now
                 <img style={{height: '30px', width: '30px'}} 
                 src={ArrowRight}></img>
